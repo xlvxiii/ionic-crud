@@ -6,7 +6,7 @@ import { ApiService } from '../api.service';
 import { ModalController } from '@ionic/angular';
 // import { IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { addCircleSharp,pencil, trashBin } from 'ionicons/icons';
+import { add, pencil, trashBin } from 'ionicons/icons';
 
 @Component({
   selector: 'app-mahasiswa',
@@ -17,7 +17,7 @@ import { addCircleSharp,pencil, trashBin } from 'ionicons/icons';
 })
 export class MahasiswaPage implements OnInit {
   constructor(public _apiService: ApiService, private modal: ModalController) {
-    addIcons({addCircleSharp, pencil, trashBin});
+    addIcons({add, pencil, trashBin});
   }
 
   dataMahasiswa: any = [];

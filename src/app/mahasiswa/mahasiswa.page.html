@@ -14,12 +14,11 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-card>
-    <ion-button (click)="open_modal_tambah(true)" expand="block">
-      <ion-icon name="add-circle-sharp" class="ion-margin-end"></ion-icon>
-      Tambah Mahasiswa
-    </ion-button>
-  </ion-card>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="open_modal_tambah(true)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
   <ion-card *ngFor="let item of dataMahasiswa">
     <ion-item>
