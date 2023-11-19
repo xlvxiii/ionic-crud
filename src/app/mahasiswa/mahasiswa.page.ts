@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ApiService } from '../api.service';
 import { ModalController } from '@ionic/angular';
+// import { IonIcon } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { addCircleSharp,pencil, trashBin } from 'ionicons/icons';
 
 @Component({
   selector: 'app-mahasiswa',
@@ -13,7 +16,9 @@ import { ModalController } from '@ionic/angular';
   imports: [IonicModule, CommonModule, FormsModule],
 })
 export class MahasiswaPage implements OnInit {
-  constructor(public _apiService: ApiService, private modal: ModalController) {}
+  constructor(public _apiService: ApiService, private modal: ModalController) {
+    addIcons({addCircleSharp, pencil, trashBin});
+  }
 
   dataMahasiswa: any = [];
   modal_tambah = false;
@@ -63,6 +68,7 @@ export class MahasiswaPage implements OnInit {
   cancel() {
     this.modal.dismiss();
     this.modal_tambah = false;
+    this.modal_edit = false;
     this.reset_model();
   }
 

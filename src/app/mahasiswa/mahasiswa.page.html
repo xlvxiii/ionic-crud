@@ -13,20 +13,25 @@
       <ion-title size="large">mahasiswa</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-card>
+    <ion-button (click)="open_modal_tambah(true)" expand="block">
+      <ion-icon name="add-circle-sharp" class="ion-margin-end"></ion-icon>
+      Tambah Mahasiswa
+    </ion-button>
+  </ion-card>
+
   <ion-card *ngFor="let item of dataMahasiswa">
     <ion-item>
       <ion-label>
         {{item.nama}}
         <p>{{item.jurusan}}</p>
       </ion-label>
-      <ion-button expand="block" (click)="open_modal_edit(true,item.id)">Edit</ion-button>
-      <ion-button color="danger" slot="end" (click)="hapusMahasiswa(item.id)">Hapus</ion-button>
+      <ion-button expand="block" (click)="open_modal_edit(true,item.id)"><ion-icon name="pencil"></ion-icon></ion-button>
+      <ion-button color="danger" slot="end" (click)="hapusMahasiswa(item.id)"><ion-icon name="trash-bin"></ion-icon></ion-button>
     </ion-item>
   </ion-card>
 
-  <ion-card>
-    <ion-button (click)="open_modal_tambah(true)" expand="block">Tambah Mahasiswa</ion-button>
-  </ion-card>
   <!-- ini untuk modal tambah -->
   <ion-modal [isOpen]="modal_tambah">
     <ng-template>
@@ -78,12 +83,11 @@
           </ion-input>
         </ion-item>
         <ion-item>
-          <ion-input label='Jurusan Mahasiswa' labelPlacement="floating" required [(ngModel)]="jurusan"
+          <ion-input label="Jurusan Mahasiswa" labelPlacement="floating" required [(ngModel)]="jurusan"
             placeholder="Masukkan Jurusan Mahasiswa" type="text">
           </ion-input>
         </ion-item>
-        <ion-input required [(ngModel)]="id" type="hidden">
-        </ion-input>
+        <ion-input required [(ngModel)]="id" type="hidden"> </ion-input>
         <ion-row>
           <ion-col>
             <ion-button type="button" (click)="editMahasiswa()" color="primary" shape="full" expand="block">Edit
